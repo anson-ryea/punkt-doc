@@ -8,19 +8,21 @@ import {
 // You can customise Zod schemas for frontmatter and `meta.json` here
 // see https://fumadocs.dev/docs/mdx/collections
 export const docs = defineDocs({
-  docs: {
-    schema: frontmatterSchema,
-    postprocess: {
-      includeProcessedMarkdown: true,
+    docs: {
+        schema: frontmatterSchema,
+        postprocess: {
+            includeProcessedMarkdown: true,
+        },
     },
-  },
-  meta: {
-    schema: metaSchema,
-  },
+    meta: {
+        schema: metaSchema,
+    },
 });
 
 export default defineConfig({
-  mdxOptions: {
-    // MDX options
-  },
+    mdxOptions: {
+        remarkCodeTabOptions: {
+            parseMdx: true,
+        },
+    },
 });
