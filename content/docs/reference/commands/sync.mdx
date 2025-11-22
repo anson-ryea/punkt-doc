@@ -1,0 +1,39 @@
+---
+title: sync
+description: Add dotfiles to or update dotfiles in the local state so that they match the content in the active state. If no targets are specified, modify all dotfiles that are currently in the local state so that they match the active state.
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+## Usage
+
+```bash title="Shell"
+punkt sync [<options>] [<targets>]
+```
+
+## Examples
+
+```bash
+punkt sync
+punkt sync ~/.txt ~/audrey
+punkt sync -i ".*\.txt"
+punkt sync --no-recursive -i ".*\.txt" -x ".*/a\.txt" /users/audrey
+```
+
+## Options
+ <TypeTable
+    type={{
+        "--keep-empty-folders": {
+        description: "Whether empty folders should be synced to local state",
+        type: "Boolean",
+        default: "false",
+        },
+    }}
+    />
+    
+### Common Options
+<include>../options/common.mdx#table</include>
+
+
+### Global Options
+<include>../options/global.mdx#table</include>

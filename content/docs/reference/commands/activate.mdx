@@ -1,0 +1,28 @@
+---
+title: activate
+description: Add dotfiles to or update dotfiles in the active state so that they match the content in the local state. If no targets are specified, modify all dotfiles that are currently in the local state so that their active state matches the local state.
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+## Usage
+
+```bash title="Shell"
+punkt activate [<options>] [<targets>]
+```
+## Examples
+
+```bash
+punkt activate
+punkt activate ~/.txt ~/audrey
+punkt activate -i ".*\.txt"
+punkt activate --no-recursive -i ".*\.txt" -x ".*/a\.txt" /users/audrey
+```
+
+## Options
+
+### Common Options
+<include>../options/common.mdx#table</include>
+
+### Global Options
+<include>../options/global.mdx#table</include>

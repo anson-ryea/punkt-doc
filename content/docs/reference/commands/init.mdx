@@ -1,0 +1,33 @@
+---
+title: init
+description: Initialise a punkt local repository for storing the clones of the synced dotfiles (local state). If an URI to a remote repository is provided, the remote repository will be cloned as the local state.
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+## Usage
+
+```bash title="Shell"
+punkt init [<options>] [<repo>]
+```
+## Examples
+
+```bash
+punkt init
+punkt init audrey
+punkt init audrey/dotfiles
+punkt init --ssh https://github.com/audrey/dotfiles.git
+punkt init --ssh --branch main --depth 1 audrey/dotfiles
+```
+
+## Options
+
+| Flag | Description |
+| --- | --- |
+| `--ssh` | Use SSH instead of HTTPS |
+
+### Common Options
+<include>../options/common.mdx#table</include>
+
+### Global Options
+<include>../options/global.mdx#table</include>

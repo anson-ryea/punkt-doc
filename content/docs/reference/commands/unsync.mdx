@@ -1,0 +1,27 @@
+---
+title: unsync
+description: Remove dotfiles from the local state so that they will no longer be managed by punkt.
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+<Callout type="info">
+    This does not affect the original files in the active state.
+</Callout>
+
+## Usage
+
+```bash title="Shell"
+punkt unsync [<options>] [<targets>]
+```
+
+## Examples
+
+```bash
+punkt unsync ~/.txt ~/audrey
+```
+
+## Options
+
+### Global Options
+<include>../options/global.mdx#table</include>

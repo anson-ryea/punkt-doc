@@ -1,0 +1,30 @@
+---
+title: Common Options
+description: This option group encapsulates options that are frequently used across various commands that interact withfiles and directories.
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+<section id="table">
+    <TypeTable
+    type={{
+        "-r, --recursive, --no-recursive": {
+        description: "Operate on directories recursively",
+        type: "Boolean",
+        default: "true",
+        },
+        "-i, --inclusive": {
+        description: "Only include file paths matching the regex pattern",
+        type: "Regex",
+        default: ".*",
+        },
+        "-x, --exclusive": {
+        description: "Exclude file paths matching the regex pattern",
+        type: "Regex",
+        default: "p^",
+        },
+    }}
+    />
+    
+    <Callout>If both `--include` and `--exclude` are specified, their intersection is used.</Callout>
+</section>

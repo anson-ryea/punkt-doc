@@ -1,0 +1,51 @@
+---
+title: Global Options
+description: This option group encapsulates settings that affect the overall behaviour of the application, such as output verbosity, path display styles, and interaction modes. These options are configured to fall back to default values defined in the application's configuration if not explicitly provided on the command line.
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+<section id="table">
+    <TypeTable
+    type={{
+        "-v, --verbosity": {
+        description: "Set the level of detail in the command's output",
+        type: "=Choice<full|normal|quiet>?",
+        typeDescription: "If no value is provided, only passing -v or --verbosity will use <full>.",
+        default: "Follows configuration file",
+        },
+        "-p, --path-style": {
+        description: "Set the path style for displaying paths",
+        type: "=Choice<absolute|relative|local-absolute|local-relative>",
+        default: "Follows configuration file",
+        },
+        "-y, --interactivity": {
+        description: "Whether the application should prompt for user confirmation during potentially destructive operations",
+        type: "=Choice<always|never>?",
+        typeDescription: "If no value is provided, only passing -y or --interactivity will use <never>.",
+        default: "Follows configuration file",
+        },
+        "--use-bundled-git": {
+        description:
+            "Whether to use the bundled Git or the system-installed Git for Git Operations",
+        type: "=Choice<true|false|auto>?",
+        typeDescription: "<auto> will attempt to use the system's Git and fall back to the bundled version if not found. If no value is provided, only passing --use-bundled-git will use <auto>.",
+        default: "Follows configuration file",
+        },
+        "--git-on-local-change": {
+        description:
+            "Automatically perform Git operations to perform on local state changes",
+        type: "=Choice<none|add|commit|push|add-commit|commit-push|add-commit-push>",
+        default: "Follows configuration file",
+        },
+        "--git-commit-message": {
+        description:
+            "Set the commit message for automatic Git commits",
+        type: "String",
+        typeDescription: "The commit message supports substitution variables like ${date:dd-MM-yyyy'T'HH:mm:ss}. Variables can be: ${op} for the corresponding punkt operation has done, or all variables specified in StringLookupFactory of Apache Commons Text.",
+        typeDescriptionLink: "https://commons.apache.org/proper/commons-text/apidocs/org/apache/commons/text/lookup/StringLookupFactory.html",
+        default: "Follows configuration file",
+        },
+    }}
+    />
+</section>
