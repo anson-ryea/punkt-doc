@@ -1,0 +1,27 @@
+---
+title: ignored
+description: List path matcher patterns that are ignored by Punkt so that they will not be synced to local state.
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+## Usage
+
+```bash title="Shell"
+punkt ignored [<options>]
+```
+
+<Callout>
+    Ignored rules are defined in the `.punktignore` file located at the top level of the local state directory.
+</Callout>
+
+## Examples
+
+```bash
+punkt ignored
+```
+
+## Options
+
+### Global Options
+<include>../options/global.mdx#table</include>

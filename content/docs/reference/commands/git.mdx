@@ -1,0 +1,24 @@
+---
+title: git
+description: Execute arbitrary Git commands within the context of local state repository.
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+## Usage
+
+```bash title="Shell"
+punkt git [<git-command>]
+```
+
+<Callout>
+    This command only executes if Git is installed and available in the system's PATH.
+</Callout>
+
+## Examples
+
+```bash
+punkt git status
+punkt git log --oneline
+punkt git checkout -b new-branch
+```

@@ -1,0 +1,28 @@
+---
+title: diff
+description: Display the differences between files in the active state and their corresponding versions in the local state.
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+## Usage
+
+```bash title="Shell"
+punkt diff [<options>] [<targets>]
+```
+
+## Examples
+
+```bash
+punkt diff
+punkt diff ~/a.txt ~/audrey
+punkt diff -i ".*.txt"
+punkt diff -i ".*.txt" -x ".*/a.txt" /users/audrey
+```
+
+## Options
+### Common Options
+<include>../options/common.mdx#table</include>
+
+### Global Options
+<include>../options/global.mdx#table</include>

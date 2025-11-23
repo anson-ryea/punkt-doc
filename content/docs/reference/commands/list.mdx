@@ -1,0 +1,30 @@
+---
+title: list
+description: List files and directories managed within Punkt's local state.
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+## Usage
+
+```bash title="Shell"
+punkt list [<options>] [<paths>]
+```
+
+## Examples
+
+```bash
+punkt list
+punkt list ~/.txt ~/audrey
+punkt list -i ".*.txt"
+punkt list --path-style local-relative -i ".*.txt" -x ".*/a.txt" /users/audrey
+```
+
+## Options
+
+### Common Options
+<include>../options/common.mdx#table</include>
+
+
+### Global Options
+<include>../options/global.mdx#table</include>
