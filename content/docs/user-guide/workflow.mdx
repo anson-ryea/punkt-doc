@@ -1,0 +1,92 @@
+---
+title: Daily Workflow
+description: Integrating Punkt into your daily routine.
+---
+
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+
+<Steps>
+    <Step>
+        ## Initialising Punkt
+        
+        To begin using Punkt, you must first initialise a Local State:
+        
+        <Accordions type="single">
+          <Accordion title="A new Punkt Local State">
+            ```bash title="Shell"
+              punkt init
+            ```
+          </Accordion>
+          <Accordion title="Existing remote Punkt repository">
+            ```bash title="Shell"
+              punkt init audrey/dotfiles
+            ```
+          </Accordion>
+        </Accordions>
+    </Step>
+    <Step>
+      ## Managing Files and Directories
+      
+      To bring your files and directories under Punkt's management, simply execute `punkt sync` followed by your desired paths as arguments.
+      
+      ```bash title="Shell"
+        punkt sync ~/.local/share/nvim ~/.audrey
+      ```
+      <Callout>
+        By default, Punkt recurses into directories. To prevent this behaviour, use the `--no-recurse` flag.
+      </Callout>
+      Should you modify any dotfiles in the Active State, simply run `punkt sync` again to update the Local State.
+    
+    </Step>
+    <Step>
+      ## Editing Your Dotfiles
+      
+      Over time, you will inevitably wish to make changes to your dotfiles. You may do so in one of two ways:
+      
+      <Accordions type="single">
+          <Accordion title="Edit files in the Active State">
+            Edit the Active State, then execute `punkt sync` to update the Local State.
+          </Accordion>
+          <Accordion title="Edit files in the Local State">
+            Edit the Local State, then execute `punkt activate` to update the Active State.
+          </Accordion>
+      </Accordions>
+      
+      This presents a dilemma:
+      > Should I edit the dotfile in the Active State or the Local State?
+      
+      **Short answer:** It does not matter.
+            
+      **Long answer:** In the long run (and provided you remember), we advise editing dotfiles in the Local State. This offers several advantages:
+      - You may leave partially completed dotfiles in the Local State, and your applications will continue to use the unmodified versions in the Active State until you execute `punkt activate` when you are ready.
+      - Although less intuitive, there is a higher likelihood that you will remember to commit and push your changes to the remote repository.
+      - In the future, when scripts and templates are introduced, dotfiles may be generated from them; in such cases, only the Local State should be modified.
+    </Step>
+    <Step>
+      ## Tracking Changes With Git
+      
+      To utilise version control, simply execute Git commands as you normally would. However, you may call `punkt git` from any location to apply Git commands specifically within the Local State repository.
+      
+      ```bash title="Shell"
+        punkt git add .
+        punkt git commit -m "Initial commit"
+        punkt git push
+      ```
+    </Step>
+    <Step>
+      ## Applying Changes to Your Dotfiles
+      
+      After editing dotfiles in your Local State, it is crucial to execute `punkt activate` to ensure the Local State versions are applied to the Active State.
+      
+      ```bash title="Shell"
+        punkt activate ~/.local/share/nvim ~/.audrey
+      ```
+      
+      If you wish to apply all dotfiles managed by Punkt, simply execute:
+      
+      ```bash title="Shell"
+        punkt activate
+      ```
+    </Step>
+</Steps>

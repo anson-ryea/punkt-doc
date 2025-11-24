@@ -1,0 +1,56 @@
+---
+title: Preliminary Concepts
+description: Before you begin using Punkt, there are a few fundamental concepts to understand.
+---
+
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
+
+## Understanding how Punkt manages your dotfiles
+
+Punkt operates on a simple premise involving two distinct states:
+
+- **Active State**: This refers to your dotfiles residing in their original, intended locations as specified by their respective applications. Put simply, these are the live configuration files currently in use by your system.
+
+<Callout>
+    By default, the root directory of the Active State is your home directory. Punkt can only manage dotfiles located within this directory or its subdirectories.
+</Callout>
+
+- **Local State**: This is the directory where Punkt stores the dotfiles you wish to synchronise. It is a Git repository that mirrors your home directory structure but contains only the files and directories you have explicitly chosen to manage. The contents of this state represent your desired configuration, ready to be synchronised to other machines via Git remotes.
+
+<Callout>
+    By default, the root directory of the Local State is `~/.local/share/punkt`.
+</Callout>
+
+Below is a comparison of the *Local State* and the *Active State*. In this example, assume we only wish Punkt to manage files and directories prefixed with `managed`:
+
+<Tabs items={['Active State', 'Local State']}>
+  <Tab value="Active State">
+    <Files>
+      <Folder name="~" defaultOpen>
+        <File name="hej.kt" />
+        <File name="managed-audrey.kt" />
+        <File name=".managed-dot.kt" />
+        <Folder name=".managed-folder" defaultOpen>
+          <File name="button.kt" />
+          <File name="managed-test.kt.zip" />
+          <File name=".managed-audrey-updated.kt" />
+        </Folder>
+        <File name="build.gradle.kts" />
+      </Folder>
+    </Files>
+  </Tab>
+  <Tab value="Local State">
+    <Files>
+      <Folder name="~/.local/share/punkt" defaultOpen>
+        <File name="managed-audrey.kt" />
+        <File name="punkt_managed-dot.kt" />
+        <Folder name="punkt_managed-folder" defaultOpen>
+          <File name="managed-test.kt.zip" />
+          <File name="punkt_managed-audrey-updated.kt" />
+        </Folder>
+      </Folder>
+    </Files>
+  </Tab>
+</Tabs>
+
+You may have noticed in the example above that all files and directories starting with a `.` are renamed with a `punkt_` prefix when synchronised to the *Local State*. This is known as the *Dot Replacement Prefix*. Its purpose is to distinguish managed dotfiles from internal files required for Punkt's operation within the *Local State*, such as `.git`.
