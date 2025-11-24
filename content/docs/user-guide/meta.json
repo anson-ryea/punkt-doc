@@ -1,6 +1,7 @@
 {
-    "title": "User Guide",
-    "icon": "Smile",
-    "root": true,
-    "defaultOpen": true
+  "title": "User Guide",
+  "icon": "Smile",
+  "root": true,
+  "defaultOpen": true,
+  "pages": ["index", "---Overview---", "...", "---Advanced---", "ignored"]
 }

@@ -1,0 +1,48 @@
+---
+title: Ignoring Files
+description: Using .punktignore to prevent files from being synchronised to the Local State.
+---
+
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+
+## .punktignore
+
+Much like `.gitignore`, placing a `.punktignore` file in the root of the Local State directory enables you to specify files and directories that should be excluded from synchronisation to the Local State.
+
+Patterns may be specified in a manner identical to `.gitignore`.
+
+<Accordions type="single">
+    <Accordion title="Which wildcards are supported?">
+        Internally, these `glob` patterns are processed via the [Java PathMatcher](https://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#getPathMatcher-java.lang.String-).
+    </Accordion>
+</Accordions>
+
+Here is an example:
+```text title=".punktignore" lineNumbers
+# Ignore the directory "audrey" anywhere in the tree
+**/audrey/
+# Ignore text files starting with "a" anywhere
+**/a*.txt
+# Ignore the "Desktop" folder anywhere
+**/Desktop/
+
+# Ignore all .tmp files anywhere
+*.tmp
+# Ignore the file or folder anywhere
+bak
+# Ignore backup files ending with a tilde in the top-level Local State directory
+/*~
+
+# Ignore .log files inside any "logs" directory
+logs/**/*.log
+# Ignore .cache files inside any "cache" directory
+**/cache/*.cache
+```
+
+<Callout>
+    If no path separators (e.g. `/` or `\`) are included, the pattern will match all files and directories with that name within any directory.
+</Callout>
+
+## Default Ignored Patterns
+
+By default, Punkt employs two lists of ignored patterns: one to filter Active State files during synchronisation to the Local State, and another to ignore files residing within the Local State itself (such as files commencing with a dot).
