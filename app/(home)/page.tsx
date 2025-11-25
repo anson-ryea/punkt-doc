@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { Cards, Card } from "fumadocs-ui/components/card";
-import { SmileIcon, ToolCaseIcon, BookMarkedIcon } from "lucide-react";
+import {
+  SmileIcon,
+  ToolCaseIcon,
+  BookMarkedIcon,
+  PackageOpenIcon,
+} from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -23,6 +28,17 @@ export default function HomePage() {
             <p>Be a power user and master Punkt.</p>
           </Card>
           <Card
+            icon={<BookMarkedIcon />}
+            href="/docs/reference"
+            title=""
+            className="text-left"
+          >
+            <h1 className="text-base font-medium text-black dark:text-white">
+              Reference
+            </h1>
+            <p>Punkt's commands and options in detail.</p>
+          </Card>
+          <Card
             icon={<ToolCaseIcon />}
             href="/docs/developer-guide"
             title=""
@@ -37,15 +53,15 @@ export default function HomePage() {
             </p>
           </Card>
           <Card
-            icon={<BookMarkedIcon />}
-            href="/docs/reference"
+            icon={<PackageOpenIcon />}
+            href="https://github.com/anson-ryea/punkt/releases"
             title=""
             className="text-left"
           >
             <h1 className="text-base font-medium text-black dark:text-white">
-              Reference
+              Releases & Patch Notes
             </h1>
-            <p>Punkt's commands and options in detail.</p>
+            <p>Download releases and read patch notes on GitHub.</p>
           </Card>
         </Cards>
       </div>
