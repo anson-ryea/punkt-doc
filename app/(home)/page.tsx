@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col justify-center text-center flex-1 space-y-8 px-4 md:px-8 lg:px-32">
       <div className="space-y-4 mt-8">
-        <h1 className="text-4xl font-bold">Want to know more abount Punkt?</h1>
+        <h1 className="text-4xl font-bold">Want to know more about Punkt?</h1>
         <h4>Portal to different sections of documentation.</h4>
       </div>
       <div>
