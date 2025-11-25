@@ -38,7 +38,7 @@ export default function HomePage() {
           </Card>
           <Card
             icon={<BookMarkedIcon />}
-            href="/docs/references"
+            href="/docs/reference"
             title=""
             className="text-left"
           >
