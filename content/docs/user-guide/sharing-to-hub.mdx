@@ -1,0 +1,46 @@
+---
+title: Sharing to Punkt Hub
+description: Share your dotfiles on Punkt Hub
+---
+
+## Creating a Collection
+
+To create a collection, simply run the following command:
+
+```bash title="Shell"
+punkt create-collection
+```
+
+You can make it private by simply adding the flag `--private`:
+
+```bash title="Shell"
+punkt create-collection --private
+```
+
+## Deleting a Collection
+
+To delete a collection you own, you must first ascertain its `handle`. Once you have the handle, execute:
+
+```bash title="Shell"
+punkt delete-collection 77
+```
+
+## Adding Files to Your Collection
+
+Before uploading files to the Hub, you must ensure they are synchronised to the Local State. Once synchronised, you may publish them using the collection handle:
+
+```bash title="Shell"
+punkt publish 77 ~/audrey.txt
+```
+
+<Callout>
+    At present, only individual files are supported for upload; directories cannot be uploaded. The target path provided must be an Active State path. Furthermore, file names must be unique within the collection.
+</Callout>
+
+## Removing Files from Your Collection
+
+To remove a file from a collection you own, simply run the command with the collection handle and the file name:
+
+```bash title="Shell"
+punkt unpublish 77 audrey.txt
+```

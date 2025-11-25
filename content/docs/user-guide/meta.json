@@ -6,9 +6,12 @@
   "pages": [
     "index",
     "---Overview---",
-    "...",
+    "concepts",
+    "workflow",
     "---Advanced---",
     "ignored",
-    "customising-with-configuration"
+    "customising-with-configuration",
+    "---Hub---",
+    "..."
   ]
 }

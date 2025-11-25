@@ -1,0 +1,101 @@
+---
+title: Introduction to Punkt Hub
+description: Discover how to download shared dotfiles and manage your configuration with Punkt Hub.
+---
+
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+
+<Steps>
+    <Step>
+        ## Register an Account
+        
+        To commence your journey with Punkt Hub, you must first create an account:
+        
+        ```bash title="Shell"
+        punkt hub register
+        ```
+    </Step>
+    <Step>
+      ## Log in to Your Account
+      
+      Once registered, authenticate your session with the following command:
+      
+      ```bash title="Shell"
+      punkt hub login
+      ```
+    </Step>
+    <Step>
+      ## View Your Profile
+      
+      You may inspect your current profile details by running:
+      
+      ```bash title="Shell"
+      punkt hub whoami
+      ```
+      
+      Punkt Hub offers two tiers of service:
+      - Free
+      - Pro 
+      
+      Pro users enjoy the benefit of unlimited downloads from the Hub.
+      
+      Activate your licence by running:
+      
+      ```bash title="Shell"
+      punkt hub activate-licence XXXX-XXXX-XXXX-XXXX
+      ```
+    </Step>
+    <Step>
+      ## Browse Available Collections
+      
+      Punkt Hub hosts a variety of dotfiles shared by the community. These are organised into collections, each containing a curated set of configuration files. You are free to browse and download these collections to customise your environment.
+      
+      To list all public collections, execute the following:
+      
+      ```bash title="Shell"
+      punkt hub list
+      ```
+      
+      To view only your own collections, use the `--mine` flag:
+      
+      ```bash title="Shell"
+      punkt hub list --mine
+      ```
+    </Step>
+    <Step> 
+      ## Inspect a Collection
+      
+      After listing the available collections, you may discover entries such as:
+      
+      | Name | Description | Handle | Last Updated
+      ---|---|---|---
+      | Audrey's Collection | Audrey's favourites | 77 | 2025-01-01
+      
+      To explore the contents of a specific collection, simply run the list command with its unique `handle`:
+      
+      ```bash title="Shell"
+      punkt hub list 77
+      ```
+    </Step>
+    <Step> 
+      ## Synchronise a Collection
+      
+      Should you find a collection that piques your interest, you may synchronise it to your Local State with the following command:
+      
+      ```bash title="Shell"
+      punkt hub sync 77
+      ```
+      
+      Please remember to run `punkt activate` afterwards to apply the dotfiles from the collection.
+    </Step>
+    <Step> 
+      ## Unsynchronise a Collection
+      
+      If you no longer require a collection, you may easily remove it by running:
+      
+      ```bash title="Shell"
+      punkt hub unsync 77
+      ```
+    </Step>
+</Steps>

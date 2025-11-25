@@ -15,12 +15,12 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
         <Accordions type="single">
           <Accordion title="A new Punkt Local State">
             ```bash title="Shell"
-              punkt init
+            punkt init
             ```
           </Accordion>
           <Accordion title="Existing remote Punkt repository">
             ```bash title="Shell"
-              punkt init audrey/dotfiles
+            punkt init audrey/dotfiles
             ```
           </Accordion>
         </Accordions>
@@ -31,7 +31,7 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
       To bring your files and directories under Punkt's management, simply execute `punkt sync` followed by your desired paths as arguments.
       
       ```bash title="Shell"
-        punkt sync ~/.local/share/nvim ~/.audrey
+      punkt sync ~/.local/share/nvim ~/.audrey
       ```
       <Callout>
         By default, Punkt recurses into directories. To prevent this behaviour, use the `--no-recurse` flag.
@@ -69,9 +69,9 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
       To utilise version control, simply execute Git commands as you normally would. However, you may call `punkt git` from any location to apply Git commands specifically within the Local State repository.
       
       ```bash title="Shell"
-        punkt git add .
-        punkt git commit -m "Initial commit"
-        punkt git push
+      punkt git add .
+      punkt git commit -m "Initial commit"
+      punkt git push
       ```
       
       <Callout type="warn">
@@ -85,13 +85,13 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
       After editing dotfiles in your Local State, it is crucial to execute `punkt activate` to ensure the Local State versions are applied to the Active State.
       
       ```bash title="Shell"
-        punkt activate ~/.local/share/nvim ~/.audrey
+      punkt activate ~/.local/share/nvim ~/.audrey
       ```
       
       If you wish to apply all dotfiles managed by Punkt, simply execute:
       
       ```bash title="Shell"
-        punkt activate
+      punkt activate
       ```
     </Step>
 </Steps>
