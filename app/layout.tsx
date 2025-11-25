@@ -27,7 +27,7 @@ export default function Layout({ children }: LayoutProps<"/">) {
           className="font-mono border-b"
           id="banner-release"
         >
-          <a href="https://github.com/nuxt/nuxt/releases">
+          <a href="https://github.com/anson-ryea/punkt/releases">
             Punkt has released! Check out v0.1.0 →
           </a>
         </Banner>
