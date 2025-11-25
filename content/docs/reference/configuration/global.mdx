@@ -1,0 +1,109 @@
+---
+title: Global Configuration
+descriptions: This section of the configuration affects the core functionality of Punkt.
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+<section id="table">
+    <TypeTable
+    type={{
+        "localStatePath": {
+        description: "Path to the Local State directory.",
+        type: "String",
+        default: "~/.local/share/punkt",
+        },
+        "activeStatePath": {
+        description: "Path to the Active State directory, where all your dotfiles reside.",
+        type: "String",
+        default: "~",
+        },
+        "dotReplacementPrefix": {
+        description: "String to replace starting dots in directory or file names in the Local State.",
+        type: "String",
+        default: "punkt_",
+        },
+        "verbosity": {
+        description: "Level of detail in the command's output.",
+        type: "FULL|NORMAL|QUIET",
+        default: "NORMAL",
+        },
+        "pathStyle": {
+        description: "Path style for displaying paths.",
+        type: "ABSOLUTE|RELATIVE|LOCAL_ABSOLUTE|LOCAL_RELATIVE",
+        default: "ABSOLUTE",
+        },
+        "interactivity": {
+        description: "Prompt for user confirmation during potentially destructive operations.",
+        type: "ALWAYS|NEVER",
+        default: "ALWAYS",
+        },
+        "ignoredActiveFilesForDarwin": {
+        description: "A list of patterns to ignore when synchronising files or directories from the Active State to the Local State on MacOS.",
+        type: "List<String>",
+        default: [
+                ".DS_Store",
+                ".localized",
+                ".AppleDouble",
+                "__MACOSX",
+                ".LSOverride",
+                "._*",
+                "Icon",
+                ".DocumentRevisions-V100",
+                ".fseventsd",
+                ".Spotlight-V100",
+                ".TemporaryItems",
+                ".Trashes",
+                ".VolumeIcon.icns",
+                ".com.apple.timemachine.donotpresent",
+                ".AppleDB",
+                ".AppleDesktop",
+                "Network Trash Folder",
+                "Temporary Items",
+                ".apdisk",
+        ]},
+        "ignoredActiveFilesForWindows": {
+        description: "A list of patterns to ignore when synchronising files or directories from the Active State to the Local State on Windows.",
+        type: "List<String>",
+        default: [
+        "Thumbs.db",
+                "Thumbs.db:encryptable",
+                "ehthumbs.db",
+                "ehthumbs_vista.db",
+                "*.stackdump",
+                "[Dd]esktop.ini",
+                "$RECYCLE.BIN/**",
+                "*.cab",
+                "*.msi",
+                "*.msix",
+                "*.msm",
+                "*.msp",
+                "*.lnk"
+        ]},
+        "ignoredActiveFilesForLinux": {
+        description: "A list of patterns to ignore when synchronising files or directories from the Active State to the Local State on Linux.",
+        type: "List<String>",
+        default: [
+                ".*.swp",
+                ".*.swo",
+                ".*.swx",
+                ".directory",
+                ".Trash-*/**",
+                ".cache/**",
+                ".local/share/Trash/**",
+                "*~",
+                ".fuse_hidden*",
+                ".directory",
+                ".nfs*",
+                "nohup.out"
+        ]},
+        "ignoredLocalFiles": {
+        description: "A list of patterns for files within the Local State that are neither activated nor managed by Punkt.",
+        type: "List<String>",
+        default: [
+                ".*",
+                ".*/**"
+        ]}
+    }}
+    />
+</section>

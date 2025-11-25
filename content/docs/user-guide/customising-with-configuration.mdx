@@ -1,0 +1,66 @@
+---
+title: Customising with Configuration
+description: Modifying Punkt's behaviour via configuration settings.
+---
+
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
+
+The `punkt.json` file allows you to tailor Punkt's behaviour to your specific requirements. Depending on your operating system, this file should be placed in one of the following locations:
+
+<Tabs items={['MacOS', 'Windows', 'Linux']}>
+  <Tab value="MacOS">
+    <Files>
+      <Folder name="~/Library/Application Support" defaultOpen>
+        <Folder name="punkt" defaultOpen>
+          <File name="punkt.json" />
+        </Folder>
+      </Folder>
+    </Files>
+  </Tab>
+  <Tab value="Windows">
+    <Files>
+      <Folder name="%APPDATA% (~/AppData/Roaming)" defaultOpen>
+        <Folder name="punkt" defaultOpen>
+          <File name="punkt.json" />
+        </Folder>
+      </Folder>
+    </Files>
+  </Tab>
+  <Tab value="Linux">
+    <Files>
+      <Folder name="$XDG_CONFIG_HOME (~/.config)" defaultOpen>
+        <Folder name="punkt" defaultOpen>
+          <File name="punkt.json" />
+        </Folder>
+      </Folder>
+    </Files>
+  </Tab>
+</Tabs>
+
+<Callout>
+    On Linux systems, Punkt defaults to the XDG specification when locating the configuration file. If the file is absent from the standard location, Punkt will alternatively search within `~/.config/punkt`.
+</Callout>
+
+Below is an example configuration file:
+```json title="punkt.json" lineNumbers
+{
+  "git": {
+    "gitOnLocalChange": "ADD_COMMIT_PUSH",
+    "bundledGitEmail": "audrey@test.com"
+  },
+  "global": {
+    "dotReplacementPrefix": "audrey-",
+    "interactivity": "NEVER"
+  }
+}
+```
+
+For a comprehensive list of configurable options, please refer to:
+<Cards>
+  <Card
+    href="/docs/reference/configuration"
+    title="Configuration"
+  >
+    Learn more about the configuration options
+  </Card>
+</Cards>

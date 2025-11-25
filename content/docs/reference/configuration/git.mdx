@@ -1,0 +1,46 @@
+---
+title: Git Configuration
+descriptions: This section of the configuration affects the git functionality of Punkt.
+---
+
+import { TypeTable } from 'fumadocs-ui/components/type-table';
+
+<section id="table">
+    <TypeTable
+    type={{
+        "systemGitCommand": {
+        description: "Command to call for git operations",
+        type: "String",
+        default: "git",
+        },
+        "useBundledGit": {
+        description: "Use the bundled Git or the system-installed Git for Git operations. If AUTO is chosen, the bundled git executable will be used if system-installed git is unavailable.",
+        typeDescription: "AUTO will attempt to use the system's Git and fall back to the bundled version if not found.",
+        type: "TRUE|FALSE|AUTO",
+        default: "AUTO",
+        },
+        "bundledGitName": {
+        description: "Username to be use when doing git operations with bundled git",
+        type: "String",
+        default: "Username of the current user account",
+        },
+        "bundledGitEmail": {
+        description: "Email to be use when doing git operations with bundled git",
+        type: "String",
+        default: "",
+        },
+        "gitOnLocalChange": {
+        description: "Automatically perform Git operations to perform on local state changes",
+        type: "NONE|ADD|COMMIT|ADD_COMMIT|COMMIT_PUSH|ADD_COMMIT|PUSH",
+        default: "NONE",
+        },
+        "autoCommitMessage": {
+        description: "Message to be used when automatically committing changes",
+        typeDescription: "The commit message supports substitution variables like ${date:dd-MM-yyyy'T'HH:mm:ss}. Variables can be: ${op} for the corresponding punkt operation has done, or all variables specified in StringLookupFactory of Apache Commons Text.",
+        typeDescriptionLink: "https://commons.apache.org/proper/commons-text/apidocs/org/apache/commons/text/lookup/StringLookupFactory.html",
+        type: "String",
+        default: "[punkt] ${op} at ${date:dd-MM-yyyy'T'HH:mm:ss}",
+        }
+    }}
+    />
+</section>

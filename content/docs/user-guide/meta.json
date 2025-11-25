@@ -3,5 +3,12 @@
   "icon": "Smile",
   "root": true,
   "defaultOpen": true,
-  "pages": ["index", "---Overview---", "...", "---Advanced---", "ignored"]
+  "pages": [
+    "index",
+    "---Overview---",
+    "...",
+    "---Advanced---",
+    "ignored",
+    "customising-with-configuration"
+  ]
 }
