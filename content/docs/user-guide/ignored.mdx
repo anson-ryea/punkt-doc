@@ -9,39 +9,37 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 
 Much like `.gitignore`, placing a `.punktignore` file in the root of the Local State directory enables you to specify files and directories that should be excluded from synchronisation to the Local State.
 
-Patterns may be specified in a manner identical to `.gitignore`.
+<Callout type="warn">
+    Patterns may be specified in a manner similar to `.gitignore`, but they are not exactly identical. However, there are plans to make it `.gitignore` compliant before v1.0.0.
+</Callout>
 
 <Accordions type="single">
-    <Accordion title="Which wildcards are supported?">
+    <Accordion title="Which wildcards are supported and how are patterns parsed?">
         Internally, these `glob` patterns are processed via the [Java PathMatcher](https://docs.oracle.com/javase/8/docs/api/java/nio/file/FileSystem.html#getPathMatcher-java.lang.String-).
     </Accordion>
 </Accordions>
 
 Here is an example:
 ```text title=".punktignore" lineNumbers
-# Ignore the directory "audrey" anywhere in the tree
-**/audrey/
-# Ignore text files starting with "a" anywhere
+# Ignore text files starting with in any subdirectory but not in the root
 **/a*.txt
-# Ignore the "Desktop" folder anywhere
-**/Desktop/
 
-# Ignore all .tmp files anywhere
+# Ignore "audrey" anywhere, both in the root and in any subdirectory
+audrey
+**/audrey
+
+# Ignore all .tmp files in root
 *.tmp
-# Ignore the file or folder anywhere
+# Ignore the file or folder in root
 bak
-# Ignore backup files ending with a tilde in the top-level Local State directory
+# Ignore backup files ending with a tilde in root
 /*~
 
-# Ignore .log files inside any "logs" directory
+# Ignore .log files inside in root
 logs/**/*.log
 # Ignore .cache files inside any "cache" directory
 **/cache/*.cache
 ```
-
-<Callout>
-    If no path separators (e.g. `/` or `\`) are included, the pattern will match all files and directories with that name within any directory.
-</Callout>
 
 ## Default Ignored Patterns
 
