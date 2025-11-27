@@ -13,7 +13,7 @@ Welcome to the developer guide! We are thrilled that you are interested in build
         Before we begin, you will need to ensure your development environment is equipped with the right tools. Please refer to the official documentation for the following dependencies to get them installed on your machine:
 
          - [Java SE Development Kit](https://www.oracle.com/java/technologies/downloads/)
-         - [Gradle](https://docs.gradle.org/current/userguide/installation.html)
+         - [Gradle](https://docs../gradlew.org/current/userguide/installation.html)
          - [GraalVM](https://www.graalvm.org/latest/getting-started/#installing)
          - [Kotlin](https://kotlinlang.org/docs/getting-started.html)
         
@@ -34,7 +34,7 @@ Welcome to the developer guide! We are thrilled that you are interested in build
         Once you have cloned the repository and have your dependencies sorted, you can initialise the project just as you would with any standard Gradle project. Pop open your terminal and run:
         
         ```bash
-        gradle init
+        ./gradlew init
         ```
     </Step>
     <Step>
@@ -42,7 +42,7 @@ Welcome to the developer guide! We are thrilled that you are interested in build
         The project utilises the Gradle `application` plugin, making it quite straightforward to run directly from the source. You can fire it up with:
         
         ```bash
-        gradle run
+        ./gradlew run
         ```
         
         However, as Punkt is a command-line interface (CLI) tool, you will likely want to pass arguments to it to see it in action. You can do this using the `--args` flag. 
@@ -50,7 +50,7 @@ Welcome to the developer guide! We are thrilled that you are interested in build
         For instance, if you wished to execute the equivalent of `punkt list ~/audrey`, you would run the following command:
         
         ```bash
-        gradle run --args="list ~/audrey"
+        ./gradlew run --args="list ~/audrey"
         ```
     </Step>
     <Step>
@@ -59,12 +59,12 @@ Welcome to the developer guide! We are thrilled that you are interested in build
         
         To run the test suite natively, please use:
         ```bash
-        gradle nativeTest
+        ./gradlew nativeTest
         ```
         
         When you are ready to build the final native executable:
         ```bash
-        gradle nativeBuild
+        ./gradlew nativeBuild
         ```
         
         Once the build completes, you can find your shiny new executable waiting for you in the `build/native/nativeImage` directory. Give it a spin to make sure everything is ship-shape!
