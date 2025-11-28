@@ -1,0 +1,5 @@
+{
+  "title": "Punkt Documentation",
+  "description": "Documentation for Punkt",
+  "pages": ["user-guide", "reference", "developer-guide"]
+}
