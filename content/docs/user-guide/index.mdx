@@ -3,8 +3,61 @@ title: Getting Started
 description: Getting started with Punkt
 ---
 
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+
 ## What is Punkt?
 
 Punkt is a command-line tool designed to help you manage your dotfiles and configuration files across multiple machines.
 
 In practice, Punkt operates similarly to Git, as it uses Git behind the scenes to track changes and synchronise dotfiles from various directories, storing them in a centralised repository.
+
+<Steps>
+<Step>
+    ## Installing Punkt
+    
+    <Accordions type="single">
+      <Accordion title="MacOS or Linux">
+        ### Homebrew
+        ```bash title="Shell"
+        brew tap anson-ryea/punkt
+        brew install punkt
+        ```
+        ### Portable Executables
+        You can download the latest version of Punkt from the [GitHub releases page](https://github.com/anson-ryea/punkt/releases).
+        
+        First, extract the tarball using the following command, the filename should depends on your operating system and architecture:
+        ```bash title="Shell"
+        tar -xvf punkt-v0.1.1-amd64-linux.tar.gz
+        ```
+        Then, navigate to the extracted directory and run the `punkt` executable:
+        ```bash title="Shell"
+        ./punkt
+        ```
+      </Accordion>
+      <Accordion title="Windows">
+        ### Portable Executables
+        You can download the latest version of Punkt from the [GitHub releases page](https://github.com/anson-ryea/punkt/releases).
+        
+        You can simply extract the ZIP file and navigate to the extracted directory to run `punkt.exe`.
+        ```powershell title="Shell"
+        .\punkt.exe
+        ```
+        
+        <Callout>
+            Installers are planned in future releases.
+        </Callout>
+      </Accordion>
+    </Accordions>
+</Step>
+<Step>
+  ## Verifying that Punkt is installed
+
+  ```bash title="Shell"
+  punkt --version
+  ```
+  
+  You are now good to go!
+
+</Step>
+</Steps>
